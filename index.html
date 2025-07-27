@@ -12,24 +12,7 @@
     <!-- Floating Hearts Animation -->
     <div id="hearts-container" class="floating-hearts"></div>
 
-    <!-- Navigation -->
-    <nav id="navbar" class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <h1 class="logo-text">My Dearest Love</h1>
-            </div>
-            <div class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link active">Home</a>
-                <a href="#gallery" class="nav-link">Gallery</a>
-                <a href="#letter" class="nav-link">Letter</a>
-            </div>
-            <div class="nav-toggle" id="nav-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </nav>
+
 
     <!-- Home Section -->
     <section id="home" class="section active">
@@ -51,6 +34,13 @@
             </div>
         </div>
     </section>
+
+    <!-- Floating Navigation -->
+    <div class="floating-nav">
+        <button class="nav-btn" onclick="showSection('home')" title="Home">🏠</button>
+        <button class="nav-btn" onclick="showSection('gallery')" title="Gallery">📸</button>
+        <button class="nav-btn" onclick="showSection('letter')" title="Letter">💌</button>
+    </div>
 
     <!-- Gallery Section -->
     <section id="gallery" class="section">

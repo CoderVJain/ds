@@ -51,90 +51,34 @@ body {
     background-clip: text;
 }
 
-/* Navigation */
-.navbar {
+/* Navigation Buttons (Floating) */
+.floating-nav {
     position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(253, 251, 247, 0.95);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(232, 180, 184, 0.2);
+    bottom: 30px;
+    right: 30px;
     z-index: 1000;
-    transition: all 0.3s ease;
-}
-
-.navbar.scrolled {
-    background: rgba(253, 251, 247, 0.98);
-    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
-}
-
-.nav-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.logo-text {
-    font-family: 'Dancing Script', cursive;
-    font-size: 2rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, var(--deep-rose), var(--rose-gold), var(--royal-purple));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    cursor: pointer;
-}
-
-.nav-menu {
-    display: flex;
-    gap: 2rem;
-}
-
-.nav-link {
-    text-decoration: none;
-    color: var(--royal-purple);
-    font-weight: 500;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.nav-link:hover,
-.nav-link.active {
-    color: var(--deep-rose);
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(135deg, var(--deep-rose), var(--rose-gold));
-    transition: width 0.3s ease;
-}
-
-.nav-link:hover::after,
-.nav-link.active::after {
-    width: 100%;
-}
-
-.nav-toggle {
-    display: none;
     flex-direction: column;
-    cursor: pointer;
+    gap: 15px;
 }
 
-.bar {
-    width: 25px;
-    height: 3px;
-    background: var(--royal-purple);
-    margin: 3px 0;
-    transition: 0.3s;
-    border-radius: 3px;
+.nav-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, var(--deep-rose), var(--royal-purple));
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.nav-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 35px rgba(197, 54, 108, 0.4);
 }
 
 /* Sections */
@@ -389,19 +333,33 @@ body {
 }
 
 .letter-paper {
-    background: linear-gradient(45deg, var(--warm-white) 0%, var(--champagne) 100%);
+    background: 
+        linear-gradient(45deg, var(--warm-white) 0%, var(--champagne) 100%),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 25px,
+            rgba(232, 180, 184, 0.1) 26px,
+            rgba(232, 180, 184, 0.1) 27px
+        );
     padding: 4rem;
     border-radius: 30px;
     position: relative;
-    border: 3px solid;
-    border-image: linear-gradient(45deg, var(--deep-rose), var(--rose-gold), var(--royal-purple)) 1;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    border: 5px solid;
+    border-image: linear-gradient(45deg, var(--deep-rose), gold, var(--royal-purple), gold, var(--deep-rose)) 1;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        0 0 0 10px rgba(232, 180, 184, 0.1),
+        0 0 0 15px rgba(102, 51, 153, 0.1);
 }
 
 .letter-heart {
     position: absolute;
-    color: var(--rose-gold);
-    font-size: 1.5rem;
+    color: var(--deep-rose);
+    font-size: 2rem;
+    text-shadow: 0 0 10px rgba(197, 54, 108, 0.5);
+    animation: heartGlow 2s ease-in-out infinite alternate;
 }
 
 .letter-heart.top-left { top: 1rem; left: 1rem; }
@@ -416,8 +374,29 @@ body {
 
 .letter-greeting p {
     font-family: 'Dancing Script', cursive;
-    font-size: 2rem;
+    font-size: 3rem;
     color: var(--royal-purple);
+    text-shadow: 0 2px 4px rgba(102, 51, 153, 0.3);
+    position: relative;
+}
+
+.letter-greeting p::before,
+.letter-greeting p::after {
+    content: '✦';
+    position: absolute;
+    color: gold;
+    font-size: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+.letter-greeting p::before {
+    left: -2rem;
+}
+
+.letter-greeting p::after {
+    right: -2rem;
 }
 
 .letter-content {
@@ -493,9 +472,8 @@ body {
 
 .floating-heart {
     position: absolute;
-    color: rgba(232, 180, 184, 0.4);
     font-size: 20px;
-    animation: float 10s infinite ease-in-out;
+    animation: float 10s infinite ease-in-out, colorChange 3s infinite ease-in-out;
 }
 
 /* Animations */
@@ -537,34 +515,56 @@ body {
     }
 }
 
-/* Mobile Navigation */
+@keyframes colorChange {
+    0% {
+        color: #000;
+        opacity: 0.3;
+    }
+    50% {
+        color: #ff0000;
+        opacity: 0.8;
+    }
+    100% {
+        color: #dc143c;
+        opacity: 0.5;
+    }
+}
+
+@keyframes heartGlow {
+    0% {
+        text-shadow: 0 0 10px rgba(197, 54, 108, 0.5);
+        transform: scale(1);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(197, 54, 108, 0.8), 0 0 30px rgba(255, 215, 0, 0.6);
+        transform: scale(1.1);
+    }
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: translateY(-50%) scale(1.2);
+    }
+}
+
+/* Mobile Responsive */
 @media (max-width: 768px) {
-    .nav-toggle {
-        display: flex;
+    .floating-nav {
+        bottom: 20px;
+        right: 20px;
+        flex-direction: row;
+        gap: 10px;
     }
 
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 70px;
-        flex-direction: column;
-        background: rgba(253, 251, 247, 0.98);
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-        backdrop-filter: blur(15px);
-        padding: 2rem 0;
-        gap: 1rem;
-    }
-
-    .nav-menu.active {
-        left: 0;
-    }
-
-    .nav-link {
-        font-size: 1.1rem;
-        padding: 0.5rem 0;
+    .nav-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1rem;
     }
 
     .gallery-grid {
@@ -587,6 +587,11 @@ body {
 
     .section-title {
         font-size: 2.5rem;
+    }
+
+    .letter-greeting p::before,
+    .letter-greeting p::after {
+        display: none;
     }
 }
 
