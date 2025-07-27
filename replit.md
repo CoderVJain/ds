@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a full-stack romantic website application built with React, Express.js, and TypeScript. The application appears to be a personal love-themed website with pages for a home, gallery, and love letter. It uses a modern tech stack with shadcn/ui components, Tailwind CSS for styling, and Drizzle ORM for database operations with PostgreSQL.
+This is a beautiful romantic website built with pure HTML, CSS, and JavaScript. The application is a personal love-themed website with pages for a home, gallery, and love letter. It features elegant romantic styling, smooth animations, floating hearts, and a royal/romantic design aesthetic using custom CSS and vanilla JavaScript.
 
 ## User Preferences
 
@@ -13,18 +13,12 @@ Preferred communication style: Simple, everyday language.
 The application follows a monorepo structure with separate client and server directories, sharing common types and schemas. It's designed as a single-page application (SPA) with a REST API backend.
 
 ### Frontend Architecture
-- **Framework**: React 18 with TypeScript
-- **Routing**: Wouter for client-side routing
-- **State Management**: TanStack Query (React Query) for server state
-- **UI Components**: shadcn/ui component library built on Radix UI primitives
-- **Styling**: Tailwind CSS with custom romantic theme colors and animations
-- **Build Tool**: Vite with hot module replacement
-
-### Backend Architecture
-- **Framework**: Express.js with TypeScript
-- **Database**: PostgreSQL with Drizzle ORM
-- **Session Management**: PostgreSQL sessions using connect-pg-simple
-- **Environment**: Development and production modes with appropriate configurations
+- **Framework**: Pure HTML5, CSS3, and Vanilla JavaScript
+- **Styling**: Custom CSS with romantic color palette (rose gold, deep rose, royal purple, champagne)
+- **Typography**: Google Fonts (Playfair Display, Dancing Script, Lato)
+- **Navigation**: Single Page Application behavior with smooth section transitions
+- **Animations**: CSS keyframes and JavaScript-powered floating hearts
+- **Responsive Design**: Mobile-first approach with CSS Grid and Flexbox
 
 ## Key Components
 

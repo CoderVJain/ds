@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forever & Always - My Dearest Love</title>
+    <meta name="description" content="A beautiful romantic website dedicated to my dearest love, featuring our gallery, heartfelt letter, and magical animations">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Lato:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Floating Hearts Animation -->
+    <div id="hearts-container" class="floating-hearts"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h1 class="logo-text">My Dearest Love</h1>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#letter" class="nav-link">Letter</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section active">
+        <div class="home-container">
+            <div class="home-bg">
+                <div class="home-overlay"></div>
+            </div>
+            <div class="home-content">
+                <h1 class="home-title">Forever & Always</h1>
+                <p class="home-subtitle">A love story written in the stars</p>
+                <div class="home-hearts">
+                    <span class="heart-icon">♥</span>
+                    <span class="home-text">Made with endless love</span>
+                    <span class="heart-icon">♥</span>
+                </div>
+                <button class="btn btn-primary" onclick="showSection('gallery')">
+                    Explore Our Journey
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Beautiful Memories</h2>
+                <p class="section-subtitle">Every moment with you is a treasure, every memory a masterpiece</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Garden Dreams">
+                    <div class="gallery-overlay">
+                        <h3>Garden Dreams</h3>
+                        <p>Where our love bloomed</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Golden Hour">
+                    <div class="gallery-overlay">
+                        <h3>Golden Hour</h3>
+                        <p>Our favorite time</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Dancing Hearts">
+                    <div class="gallery-overlay">
+                        <h3>Dancing Hearts</h3>
+                        <p>Moving to love's rhythm</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Ocean Dreams">
+                    <div class="gallery-overlay">
+                        <h3>Ocean Dreams</h3>
+                        <p>Endless as our love</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="City Romance">
+                    <div class="gallery-overlay">
+                        <h3>City Romance</h3>
+                        <p>Love in every corner</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Eternal Bond">
+                    <div class="gallery-overlay">
+                        <h3>Eternal Bond</h3>
+                        <p>Together forever</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-footer">
+                <button class="btn btn-secondary" onclick="showSection('letter')">
+                    Read My Letter
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Letter Section -->
+    <section id="letter" class="section">
+        <div class="letter-bg"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">A Letter From My Heart</h2>
+                <p class="section-subtitle">Words that my heart whispers to yours</p>
+            </div>
+
+            <div class="letter-container">
+                <div class="letter-paper">
+                    <!-- Decorative corners -->
+                    <span class="letter-heart top-left">♥</span>
+                    <span class="letter-heart top-right">♥</span>
+                    <span class="letter-heart bottom-left">♥</span>
+                    <span class="letter-heart bottom-right">♥</span>
+
+                    <div class="letter-greeting">
+                        <p>My Dearest Love,</p>
+                    </div>
+
+                    <div class="letter-content">
+                        <p class="letter-first-para">
+                            In this digital age, where fleeting messages disappear like morning mist, I wanted to create something permanent, something beautiful, something that captures the essence of what you mean to me.
+                        </p>
+
+                        <p>
+                            Every line of code in this website is written with love, every color chosen to reflect the warmth you bring to my life, every animation designed to mirror the way my heart dances when I see you smile.
+                        </p>
+
+                        <p>
+                            You are my inspiration, my muse, my greatest adventure. In a world full of ordinary moments, you make everything extraordinary. Your laugh is my favorite melody, your eyes my favorite constellation, your love my greatest treasure.
+                        </p>
+
+                        <p>
+                            This website is more than just pixels and code – it's a digital love letter, a virtual garden where our memories bloom, a sacred space where our love story lives forever. Each section holds a piece of my heart, each image a memory we've painted together.
+                        </p>
+
+                        <p class="letter-promise">
+                            I promise to love you with the intensity of a thousand burning stars, to cherish you with the gentleness of morning dew, and to stand by you with the steadfastness of ancient mountains.
+                        </p>
+
+                        <p>
+                            Thank you for being my everything. Thank you for loving me, for believing in us, for making every day feel like a fairytale. You are my forever and always, my once upon a time and happily ever after.
+                        </p>
+                    </div>
+
+                    <div class="letter-signature">
+                        <p class="signature-text">Forever yours,</p>
+                        <div class="signature-name">
+                            <span class="heart-icon">♥</span>
+                            <span>Your Devoted Love</span>
+                            <span class="heart-icon">♥</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-footer">
+                <button class="btn btn-primary" onclick="showSection('home')">
+                    Back to Our Beginning
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
