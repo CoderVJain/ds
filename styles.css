@@ -51,34 +51,16 @@ body {
     background-clip: text;
 }
 
-/* Navigation Buttons (Floating) */
-.floating-nav {
+/* Simple scroll navigation */
+.scroll-indicator {
     position: fixed;
     bottom: 30px;
-    right: 30px;
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.nav-btn {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: none;
-    background: linear-gradient(135deg, var(--deep-rose), var(--royal-purple));
-    color: white;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-}
-
-.nav-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 12px 35px rgba(197, 54, 108, 0.4);
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(197, 54, 108, 0.7);
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+    z-index: 100;
 }
 
 /* Sections */
@@ -217,7 +199,7 @@ body {
 .section-header {
     text-align: center;
     margin-bottom: 4rem;
-    padding-top: 6rem;
+    padding-top: 2rem;
 }
 
 .section-title {
@@ -334,24 +316,84 @@ body {
 
 .letter-paper {
     background: 
-        linear-gradient(45deg, var(--warm-white) 0%, var(--champagne) 100%),
+        radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
+        linear-gradient(45deg, #f8f4e6 0%, #f1e9d2 100%),
         repeating-linear-gradient(
-            90deg,
+            0deg,
             transparent,
-            transparent 25px,
-            rgba(232, 180, 184, 0.1) 26px,
-            rgba(232, 180, 184, 0.1) 27px
+            transparent 24px,
+            rgba(139, 69, 19, 0.1) 25px
         );
     padding: 4rem;
-    border-radius: 30px;
     position: relative;
-    border: 5px solid;
-    border-image: linear-gradient(45deg, var(--deep-rose), gold, var(--royal-purple), gold, var(--deep-rose)) 1;
+    border: none;
+    border-radius: 0;
     box-shadow: 
-        0 20px 60px rgba(0, 0, 0, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.4),
-        0 0 0 10px rgba(232, 180, 184, 0.1),
-        0 0 0 15px rgba(102, 51, 153, 0.1);
+        0 0 0 20px #8b4513,
+        0 0 0 25px #daa520,
+        0 0 0 30px #8b4513,
+        0 20px 60px rgba(0, 0, 0, 0.3);
+    
+    /* Aged paper effect */
+    filter: sepia(20%) brightness(95%);
+    
+    /* Royal scroll edges */
+    background-image: 
+        /* Top decorative border */
+        repeating-linear-gradient(
+            90deg,
+            #daa520 0px,
+            #daa520 10px,
+            #8b4513 10px,
+            #8b4513 15px,
+            #daa520 15px,
+            #daa520 25px
+        ),
+        /* Bottom decorative border */
+        repeating-linear-gradient(
+            90deg,
+            #daa520 0px,
+            #daa520 10px,
+            #8b4513 10px,
+            #8b4513 15px,
+            #daa520 15px,
+            #daa520 25px
+        ),
+        /* Main background */
+        radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
+        linear-gradient(45deg, #f8f4e6 0%, #f1e9d2 100%),
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 24px,
+            rgba(139, 69, 19, 0.1) 25px
+        );
+    
+    background-size: 
+        100% 30px,
+        100% 30px,
+        cover,
+        cover,
+        cover,
+        100% 25px;
+    
+    background-position: 
+        0 0,
+        0 100%,
+        0 0,
+        0 0,
+        0 0,
+        0 0;
+    
+    background-repeat: 
+        repeat-x,
+        repeat-x,
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        repeat;
 }
 
 .letter-heart {
@@ -382,21 +424,21 @@ body {
 
 .letter-greeting p::before,
 .letter-greeting p::after {
-    content: '✦';
+    content: '❦';
     position: absolute;
-    color: gold;
-    font-size: 1.5rem;
+    color: #8b4513;
+    font-size: 2rem;
     top: 50%;
     transform: translateY(-50%);
-    animation: sparkle 2s ease-in-out infinite;
+    text-shadow: 0 0 10px rgba(139, 69, 19, 0.5);
 }
 
 .letter-greeting p::before {
-    left: -2rem;
+    left: -3rem;
 }
 
 .letter-greeting p::after {
-    right: -2rem;
+    right: -3rem;
 }
 
 .letter-content {
@@ -417,12 +459,16 @@ body {
 }
 
 .letter-first-para::first-letter {
-    font-size: 4rem;
+    font-size: 5rem;
     font-weight: 700;
-    color: var(--deep-rose);
+    color: #8b4513;
     float: left;
-    margin: 0.5rem 0.5rem 0 0;
-    line-height: 1;
+    margin: 0.5rem 0.8rem 0 0;
+    line-height: 0.8;
+    font-family: 'Dancing Script', cursive;
+    text-shadow: 
+        2px 2px 0 #daa520,
+        4px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .letter-promise {
@@ -554,19 +600,6 @@ body {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-    .floating-nav {
-        bottom: 20px;
-        right: 20px;
-        flex-direction: row;
-        gap: 10px;
-    }
-
-    .nav-btn {
-        width: 50px;
-        height: 50px;
-        font-size: 1rem;
-    }
-
     .gallery-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;

@@ -1,39 +1,25 @@
-// Navigation functionality
-const navToggle = document.getElementById('nav-toggle');
-const navMenu = document.getElementById('nav-menu');
-const navLinks = document.querySelectorAll('.nav-link');
-const navbar = document.getElementById('navbar');
+// Smooth scroll navigation - sections show on scroll
+let currentSection = 0;
+const sections = ['home', 'gallery', 'letter'];
 
-// Toggle mobile menu
-navToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    
-    // Animate hamburger bars
-    navToggle.classList.toggle('active');
-});
-
-// Close mobile menu when link is clicked
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        navToggle.classList.remove('active');
-    });
-});
-
-// Navigation scroll effect
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
+// Auto-scroll to next section on scroll
+window.addEventListener('wheel', (e) => {
+    if (e.deltaY > 0 && currentSection < sections.length - 1) {
+        // Scroll down
+        currentSection++;
+        showSection(sections[currentSection]);
+    } else if (e.deltaY < 0 && currentSection > 0) {
+        // Scroll up
+        currentSection--;
+        showSection(sections[currentSection]);
     }
-});
+}, { passive: true });
 
 // Section navigation
 function showSection(sectionId) {
     // Hide all sections
-    const sections = document.querySelectorAll('.section');
-    sections.forEach(section => {
+    const allSections = document.querySelectorAll('.section');
+    allSections.forEach(section => {
         section.classList.remove('active');
     });
 
@@ -41,28 +27,11 @@ function showSection(sectionId) {
     const targetSection = document.getElementById(sectionId);
     if (targetSection) {
         targetSection.classList.add('active');
-        
-        // Scroll to top of section
-        targetSection.scrollIntoView({ behavior: 'smooth' });
     }
-
-    // Update active nav link
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${sectionId}`) {
-            link.classList.add('active');
-        }
-    });
+    
+    // Update current section index
+    currentSection = sections.indexOf(sectionId);
 }
-
-// Handle nav link clicks
-navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const sectionId = link.getAttribute('href').substring(1);
-        showSection(sectionId);
-    });
-});
 
 // Floating hearts animation
 function createFloatingHeart() {
