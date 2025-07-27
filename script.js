@@ -1,21 +1,4 @@
-// Smooth scroll navigation - sections show on scroll
-let currentSection = 0;
-const sections = ['home', 'gallery', 'letter'];
-
-// Auto-scroll to next section on scroll
-window.addEventListener('wheel', (e) => {
-    if (e.deltaY > 0 && currentSection < sections.length - 1) {
-        // Scroll down
-        currentSection++;
-        showSection(sections[currentSection]);
-    } else if (e.deltaY < 0 && currentSection > 0) {
-        // Scroll up
-        currentSection--;
-        showSection(sections[currentSection]);
-    }
-}, { passive: true });
-
-// Section navigation
+// Simple navigation: Home → Gallery → Letter
 function showSection(sectionId) {
     // Hide all sections
     const allSections = document.querySelectorAll('.section');
@@ -27,10 +10,9 @@ function showSection(sectionId) {
     const targetSection = document.getElementById(sectionId);
     if (targetSection) {
         targetSection.classList.add('active');
+        // Scroll to top smoothly
+        targetSection.scrollIntoView({ behavior: 'smooth' });
     }
-    
-    // Update current section index
-    currentSection = sections.indexOf(sectionId);
 }
 
 // Floating hearts animation
