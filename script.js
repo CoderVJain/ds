@@ -24,9 +24,11 @@ function createFloatingHeart() {
     heart.className = 'floating-heart';
     heart.innerHTML = '♥';
     heart.style.left = Math.random() * 100 + '%';
-    heart.style.animationDelay = Math.random() * 8 + 's';
-    heart.style.animationDuration = (Math.random() * 4 + 8) + 's';
+    heart.style.animationDelay = Math.random() * 2 + 's';
     heart.style.fontSize = (Math.random() * 10 + 15) + 'px';
+    
+    // Set specific animation durations for better synchronization
+    heart.style.animation = `float ${Math.random() * 4 + 8}s infinite ease-in-out, colorChange 4s infinite ease-in-out`;
     
     heartsContainer.appendChild(heart);
     
@@ -39,7 +41,7 @@ function createFloatingHeart() {
 }
 
 // Create floating hearts periodically
-setInterval(createFloatingHeart, 3000);
+setInterval(createFloatingHeart, 2000);
 
 // Gallery item hover effects
 document.addEventListener('DOMContentLoaded', () => {

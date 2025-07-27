@@ -522,7 +522,8 @@ body {
 .floating-heart {
     position: absolute;
     font-size: 20px;
-    animation: float 10s infinite ease-in-out, colorChange 3s infinite ease-in-out;
+    color: #000;
+    animation: float 10s infinite ease-in-out, colorChange 4s infinite ease-in-out;
 }
 
 /* Animations */
@@ -566,16 +567,24 @@ body {
 
 @keyframes colorChange {
     0% {
-        color: #000;
-        opacity: 0.3;
+        color: #000000;
+        opacity: 0.6;
+    }
+    25% {
+        color: #800000;
+        opacity: 0.7;
     }
     50% {
         color: #ff0000;
         opacity: 0.8;
     }
-    100% {
+    75% {
         color: #dc143c;
-        opacity: 0.5;
+        opacity: 0.7;
+    }
+    100% {
+        color: #b22222;
+        opacity: 0.6;
     }
 }
 
