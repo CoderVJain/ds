@@ -1,17 +1,19 @@
-// Simple navigation: Home → Gallery → Letter
-function showSection(sectionId) {
-    // Hide all sections
-    const allSections = document.querySelectorAll('.section');
-    allSections.forEach(section => {
-        section.classList.remove('active');
-    });
+// Navigation for separate HTML pages
+function navigateToPage(page) {
+    window.location.href = page;
+}
 
-    // Show target section
-    const targetSection = document.getElementById(sectionId);
-    if (targetSection) {
-        targetSection.classList.add('active');
-        // Scroll to top smoothly
-        targetSection.scrollIntoView({ behavior: 'smooth' });
+// Legacy function for backwards compatibility
+function showSection(sectionId) {
+    // Map section IDs to page URLs
+    const pageMap = {
+        'home': 'home.html',
+        'gallery': 'gallery.html', 
+        'letter': 'letter.html'
+    };
+    
+    if (pageMap[sectionId]) {
+        window.location.href = pageMap[sectionId];
     }
 }
 
@@ -66,9 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.transition = 'opacity 1s ease-in-out';
         document.body.style.opacity = '1';
     }, 100);
-    
-    // Show home section by default
-    showSection('home');
 });
 
 // Enhanced button click effects
@@ -189,23 +188,5 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Handle hash navigation on page load
-window.addEventListener('load', () => {
-    const hash = window.location.hash;
-    if (hash) {
-        const sectionId = hash.substring(1);
-        setTimeout(() => showSection(sectionId), 500);
-    }
-});
-
-// Update URL hash when section changes
-function updateHash(sectionId) {
-    window.history.replaceState(null, null, `#${sectionId}`);
-}
-
-// Enhanced showSection function with hash update
-const originalShowSection = showSection;
-showSection = function(sectionId) {
-    originalShowSection(sectionId);
-    updateHash(sectionId);
-};
+// Simplified navigation for separate pages
+// Navigation is now handled by direct HTML links
