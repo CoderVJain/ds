@@ -328,85 +328,154 @@ body {
 }
 
 .letter-paper {
+    /* Royal scroll appearance with cloth texture */
     background: 
-        radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
-        linear-gradient(45deg, #f8f4e6 0%, #f1e9d2 100%),
+        /* Wax seal stains and age spots */
+        radial-gradient(circle at 15% 10%, rgba(139, 69, 19, 0.15) 0%, transparent 25%),
+        radial-gradient(circle at 85% 95%, rgba(160, 82, 45, 0.12) 0%, transparent 30%),
+        radial-gradient(circle at 70% 20%, rgba(184, 134, 11, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 25% 80%, rgba(139, 69, 19, 0.08) 0%, transparent 35%),
+        /* Cloth fiber texture */
         repeating-linear-gradient(
-            0deg,
+            45deg,
             transparent,
-            transparent 24px,
-            rgba(139, 69, 19, 0.1) 25px
-        );
+            transparent 1px,
+            rgba(139, 69, 19, 0.03) 1px,
+            rgba(139, 69, 19, 0.03) 2px
+        ),
+        repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 1px,
+            rgba(160, 82, 45, 0.02) 1px,
+            rgba(160, 82, 45, 0.02) 2px
+        ),
+        /* Main cloth base */
+        linear-gradient(135deg, 
+            #f6f2e7 0%, #f0eadc 15%, #ebe3d1 30%, 
+            #e6dcc6 45%, #e1d5bb 60%, #dcceb0 75%, 
+            #d7c7a5 90%, #d2c09a 100%);
+    
     padding: 4rem;
     position: relative;
     border: none;
     border-radius: 0;
+    
+    /* Royal scroll shadow with cloth depth */
     box-shadow: 
-        0 0 0 20px #8b4513,
-        0 0 0 25px #daa520,
-        0 0 0 30px #8b4513,
-        0 20px 60px rgba(0, 0, 0, 0.3);
+        /* Outer royal border */
+        0 0 0 8px #8b4513,
+        0 0 0 16px #daa520,
+        0 0 0 20px #b8860b,
+        0 0 0 24px #8b4513,
+        /* Scroll curl shadow */
+        0 30px 80px rgba(0, 0, 0, 0.4),
+        /* Inner cloth texture depth */
+        inset 0 2px 4px rgba(139, 69, 19, 0.1),
+        inset 0 -2px 4px rgba(139, 69, 19, 0.1),
+        inset 2px 0 4px rgba(139, 69, 19, 0.05),
+        inset -2px 0 4px rgba(139, 69, 19, 0.05);
     
-    /* Aged paper effect */
-    filter: sepia(20%) brightness(95%);
+    /* Aged cloth effect */
+    filter: sepia(15%) contrast(105%) brightness(98%);
     
-    /* Royal scroll edges */
+    /* Royal decorative borders on scroll edges */
     background-image: 
-        /* Top decorative border */
+        /* Top ornate border */
         repeating-linear-gradient(
             90deg,
-            #daa520 0px,
-            #daa520 10px,
-            #8b4513 10px,
-            #8b4513 15px,
-            #daa520 15px,
-            #daa520 25px
+            #daa520 0px, #ffd700 8px, #daa520 16px, 
+            #b8860b 20px, #8b4513 24px, #b8860b 28px,
+            #daa520 32px, #ffd700 40px, #daa520 48px
         ),
-        /* Bottom decorative border */
+        /* Bottom ornate border */
         repeating-linear-gradient(
             90deg,
-            #daa520 0px,
-            #daa520 10px,
-            #8b4513 10px,
-            #8b4513 15px,
-            #daa520 15px,
-            #daa520 25px
+            #daa520 0px, #ffd700 8px, #daa520 16px, 
+            #b8860b 20px, #8b4513 24px, #b8860b 28px,
+            #daa520 32px, #ffd700 40px, #daa520 48px
         ),
-        /* Main background */
-        radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
-        linear-gradient(45deg, #f8f4e6 0%, #f1e9d2 100%),
-        repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 24px,
-            rgba(139, 69, 19, 0.1) 25px
-        );
+        /* Left scroll edge */
+        linear-gradient(
+            to right,
+            #8b4513 0%, #daa520 25%, #ffd700 50%, 
+            #daa520 75%, #8b4513 100%
+        ),
+        /* Right scroll edge */
+        linear-gradient(
+            to left,
+            #8b4513 0%, #daa520 25%, #ffd700 50%, 
+            #daa520 75%, #8b4513 100%
+        ),
+        /* Main cloth background layers */
+        radial-gradient(circle at 15% 10%, rgba(139, 69, 19, 0.15) 0%, transparent 25%),
+        radial-gradient(circle at 85% 95%, rgba(160, 82, 45, 0.12) 0%, transparent 30%),
+        repeating-linear-gradient(45deg, transparent, transparent 1px, rgba(139, 69, 19, 0.03) 1px, rgba(139, 69, 19, 0.03) 2px),
+        repeating-linear-gradient(-45deg, transparent, transparent 1px, rgba(160, 82, 45, 0.02) 1px, rgba(160, 82, 45, 0.02) 2px),
+        linear-gradient(135deg, #f6f2e7 0%, #f0eadc 15%, #ebe3d1 30%, #e6dcc6 45%, #e1d5bb 60%, #dcceb0 75%, #d7c7a5 90%, #d2c09a 100%);
     
     background-size: 
-        100% 30px,
-        100% 30px,
-        cover,
-        cover,
-        cover,
-        100% 25px;
+        100% 25px,     /* Top border */
+        100% 25px,     /* Bottom border */
+        25px 100%,     /* Left edge */
+        25px 100%,     /* Right edge */
+        120px 120px,   /* Age spots */
+        100px 100px,   /* More age spots */
+        3px 3px,       /* Cloth texture 1 */
+        3px 3px,       /* Cloth texture 2 */
+        100% 100%;     /* Main background */
     
     background-position: 
-        0 0,
-        0 100%,
-        0 0,
-        0 0,
-        0 0,
-        0 0;
+        0 0,           /* Top border */
+        0 100%,        /* Bottom border */
+        0 0,           /* Left edge */
+        100% 0,        /* Right edge */
+        0 0, 0 0, 0 0, 0 0, 0 0;
     
     background-repeat: 
-        repeat-x,
-        repeat-x,
-        no-repeat,
-        no-repeat,
-        no-repeat,
-        repeat;
+        repeat-x,      /* Top border */
+        repeat-x,      /* Bottom border */
+        repeat-y,      /* Left edge */
+        repeat-y,      /* Right edge */
+        no-repeat, no-repeat, repeat, repeat, no-repeat;
+    
+    /* Scroll curl effect */
+    transform: perspective(1200px) rotateX(3deg) rotateY(-1deg);
+    
+    /* Cloth texture enhancement */
+    font-family: 'Playfair Display', serif;
+    color: #2d1810;
+    line-height: 1.9;
+    text-align: justify;
+    max-width: 850px;
+    min-height: 700px;
+    margin: 2rem auto;
+}
+
+/* Scroll curl effects on edges */
+.letter-paper::before,
+.letter-paper::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 100%;
+    top: 0;
+    background: linear-gradient(to bottom, #8b4513, #daa520, #8b4513);
+    box-shadow: 
+        inset 2px 0 4px rgba(0, 0, 0, 0.3),
+        inset -2px 0 4px rgba(255, 255, 255, 0.1);
+}
+
+.letter-paper::before {
+    left: -30px;
+    transform: perspective(100px) rotateY(15deg);
+    border-radius: 0 10px 10px 0;
+}
+
+.letter-paper::after {
+    right: -30px;
+    transform: perspective(100px) rotateY(-15deg);
+    border-radius: 10px 0 0 10px;
 }
 
 .letter-heart {
@@ -524,6 +593,40 @@ body {
     margin-top: 1rem;
     text-shadow: 0 0 10px rgba(218, 165, 32, 0.5);
     animation: sparkle 3s ease-in-out infinite;
+}
+
+/* Royal wax seal */
+.wax-seal {
+    position: absolute;
+    bottom: -20px;
+    right: 20px;
+    z-index: 15;
+}
+
+.wax-circle {
+    width: 80px;
+    height: 80px;
+    background: 
+        radial-gradient(circle at 30% 30%, #dc143c 0%, #8b0000 40%, #654321 100%);
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 
+        0 8px 16px rgba(0, 0, 0, 0.4),
+        inset 0 2px 4px rgba(255, 255, 255, 0.2),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+    transform: rotate(-15deg);
+}
+
+.seal-emblem {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    color: #ffd700;
+    text-shadow: 
+        0 1px 2px rgba(0, 0, 0, 0.8),
+        0 0 8px rgba(255, 215, 0, 0.6);
 }
 
 /* Floating Hearts Animation */
